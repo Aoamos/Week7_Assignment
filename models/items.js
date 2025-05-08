@@ -1,14 +1,19 @@
+// Importing mongoose
 const mongoose = require("mongoose");
 
-// Define the schema for found items
-const itemSchema = new mongoose.Schema({
-  itemName: { type: String, required: true },
-  description: { type: String, required: true },
-  locationFound: { type: String, required: true },
-  dateFound: { type: Date, requied: true, default: Date.now },
-  claimed: { type: Boolean, default: false },
-});
+// Define the Mongoose schema and model
+const itemSchema = new mongoose.Schema(
+  {
+    itemName: { type: String, require: true },
+    description: { type: String, require: true },
+    locationFound: { type: String, require: true },
+    dateFound: { type: Date, requie: true, default: Date.now },
+    claimed: { type: Boolean, default: false },
+  },
+  { timestamps: true }
+);
 
 const Item = new mongoose.model("Item", itemSchema);
 
+// Export the Item
 module.exports = Item;
